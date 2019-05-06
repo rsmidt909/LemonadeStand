@@ -26,6 +26,8 @@ namespace LemonadeStand
         int costOfSupplies;
         int maxPrice;
         int priceofLemonade;
+        int cupsOfLemonadeSold;
+        
 
 
 
@@ -41,7 +43,9 @@ namespace LemonadeStand
             totalMoney = 100;
             costOfSupplies = CostOfCup + CostOfIce + CostOfSugar + CostOfLemon;
             maxPrice = costOfSupplies * 2;
-            
+            profit = 0;
+            cupsOfLemonadeSold = 0;
+            priceofLemonade = 0;
         }
 
 
@@ -53,8 +57,7 @@ namespace LemonadeStand
             inventory.sugar =-2;
             inventory.ice =- 2;
             inventory.cups--;
-            cupsOfLemonade++;
-            priceofLemonade = 0;
+            cupsOfLemonade++;          
            
         }
 
@@ -162,6 +165,16 @@ namespace LemonadeStand
             {
                 Console.WriteLine("That price is higher than the allowed limit, please try again.");
                 SetPurchasePrice();
+            }
+        }
+
+        public void ProfitFromLemonadeSold()
+        {
+            if (customer.purchaseLemonade == true)
+            {
+                cupsOfLemonadeSold++;
+                profit = cupsOfLemonadeSold * priceofLemonade;
+                
             }
         }
 
