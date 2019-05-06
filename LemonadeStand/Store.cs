@@ -15,14 +15,17 @@ namespace LemonadeStand
         int totalMoney;
         int profit;
         int loss;
-        public Inventory inventory;
+
 
 
 
 
 
         //Constructor (BUILDS OBJECT)
-
+        public Store()
+        {
+            totalMoney = 100;
+        }
 
 
 

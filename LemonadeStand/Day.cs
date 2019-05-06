@@ -14,6 +14,7 @@ namespace LemonadeStand
         bool startDay;
         bool endDay;
         public Weather weather;
+        public Customer customer;
 
 
 

@@ -10,23 +10,57 @@ namespace LemonadeStand
     {
 
         //member variables (HAS A)
-        int lemons;
-        int sugar;
-        int cups;
-        int ice;
-
+        public int lemons;
+        public int sugar;
+        public int cups;
+        public int ice;
+        public bool supplies;
 
 
 
         //Constructor (BUILDS OBJECT)
+        public Inventory()
+        {
+            lemons = 0;
+            sugar = 0;
+            cups = 0;
+            ice = 0;
+            supplies = true;
+        }
+
 
 
 
 
         //member methods(CAN DO)
+        public void CheckSupplies()
+        {
+            if (lemons == 0)
+            {
+                 supplies = false;
+            }
+            else if (sugar == 0)
+            {
+                 supplies = false;
+            }
+            else if (cups == 0)
+            {
+                 supplies = false;
+            }
+            else if (ice == 0)
+            {
+                supplies = false;
+            }
+            else
+            {
+                supplies = true;
+            }
+        }
 
+        public void OrderSupplies()
+        {
 
-
+        }
 
 
     }

@@ -15,8 +15,8 @@ namespace LemonadeStand
         public Player player;
         public UserInterface userInterface;
         public Day day;
-        public Customer customer;
-        public Day day;
+        
+        
 
 
 
