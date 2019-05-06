@@ -22,7 +22,10 @@ namespace LemonadeStand
         public int profit;
         public int loss;
         string response;
-
+        public Customer customer;
+        int costOfSupplies;
+        int maxPrice;
+        int priceofLemonade;
 
 
 
@@ -36,6 +39,9 @@ namespace LemonadeStand
             CostOfSugar = 2;
             CostOfLemon = 5;
             totalMoney = 100;
+            costOfSupplies = CostOfCup + CostOfIce + CostOfSugar + CostOfLemon;
+            maxPrice = costOfSupplies * 2;
+            
         }
 
 
@@ -48,6 +54,7 @@ namespace LemonadeStand
             inventory.ice =- 2;
             inventory.cups--;
             cupsOfLemonade++;
+            priceofLemonade = 0;
            
         }
 
@@ -136,8 +143,27 @@ namespace LemonadeStand
 
         //------------Cups-----------------------------------------------------------
 
+        public void LemonadePurchased()
+        {
+            if (customer.purchaseLemonade == true)
+            {
+                cupsOfLemonade--;
+                totalMoney = totalMoney + priceofLemonade;
+            }
+        }
 
-
+        public void SetPurchasePrice()
+        {
+            Console.WriteLine("What would you like to set the prie of one cup of lemonade?");
+            Console.WriteLine("YOu cannot set the price higher than 2 times the amount that the supplies cost individually.");
+            response = Console.ReadLine();
+            priceofLemonade = int.Parse(response);
+            if (priceofLemonade > maxPrice)
+            {
+                Console.WriteLine("That price is higher than the allowed limit, please try again.");
+                SetPurchasePrice();
+            }
+        }
 
 
 

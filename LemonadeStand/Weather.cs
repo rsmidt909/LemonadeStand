@@ -12,8 +12,8 @@ namespace LemonadeStand
 
 
         //member variables (HAS A)
-        string currentWeather;
-        string forecastedWeather;
+        public string currentWeather;
+        public string forecastedWeather;
         
 
 
