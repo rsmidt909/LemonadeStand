@@ -23,7 +23,7 @@ namespace LemonadeStand
         public int loss;
         string response;
         public Customer customer;
-        int costOfSupplies;
+        public int costOfSupplies;
         int maxPrice;
         int priceofLemonade;
         int cupsOfLemonadeSold;

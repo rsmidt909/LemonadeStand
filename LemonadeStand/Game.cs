@@ -15,18 +15,31 @@ namespace LemonadeStand
         public Player player;
         public UserInterface userInterface;
         public Day day;
-        
-        
+
+
 
 
 
         //Constructor (BUILDS OBJECT)
-
+        public Game()
+        {
+            gameOver = false;
+        }
         
 
 
         //member methods(CAN DO)
-
+        public void GameCheck()
+        {
+            if (player.totalMoney >= player.costOfSupplies)
+            {
+                Console.WriteLine("You ran out of money to make a single cup of lemonade! Game Over!");
+                gameOver = true;
+            } else
+            {
+                gameOver = false;
+            }
+        }
 
     }
 }
