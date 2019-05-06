@@ -35,6 +35,8 @@ namespace LemonadeStand
         //Constructor (BUILDS OBJECT)
         public Player()
         {
+            inventory = new Inventory();
+            customer = new Customer();
             cupsOfLemonade = 0;
             CostOfCup = 1;
             CostOfIce = 1;
@@ -84,6 +86,7 @@ namespace LemonadeStand
 
         public void OrderLemons()
         {
+            
             Console.WriteLine("How many Lemons would you like to purchase?");
             response = Console.ReadLine();
             inventory.lemons = int.Parse(response);
@@ -159,7 +162,7 @@ namespace LemonadeStand
         public void SetPurchasePrice()
         {
             Console.WriteLine("What would you like to set the price of one cup of lemonade?");
-            Console.WriteLine("YOu cannot set the price higher than 2 times the amount that the supplies cost individually.");
+            Console.WriteLine("You cannot set the price higher than 2 times the amount that the supplies cost individually.");
             response = Console.ReadLine();
             priceofLemonade = int.Parse(response);
             if (priceofLemonade > maxPrice)

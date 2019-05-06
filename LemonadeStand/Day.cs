@@ -21,7 +21,11 @@ namespace LemonadeStand
 
 
         //Constructor (BUILDS OBJECT)
-
+        public Day()
+        {
+            weather = new Weather();
+            customer = new Customer();
+        }
 
 
 

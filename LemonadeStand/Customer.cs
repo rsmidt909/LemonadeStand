@@ -15,6 +15,7 @@ namespace LemonadeStand
         int middleThirstLevel;
         Weather weather;
         public bool purchaseLemonade;
+        Day day;
 
 
 
@@ -22,6 +23,8 @@ namespace LemonadeStand
         //Constructor (BUILDS OBJECT)
         public Customer()
         {
+            day = new Day();
+            weather = new Weather();
             maxthirst = 0;
             middleThirstLevel = maxthirst / 2;
             purchaseLemonade = false;
@@ -31,15 +34,15 @@ namespace LemonadeStand
 
         //member methods(CAN DO)
         public void HowMuchThirst()
-        { if (weather.currentWeather == "Hot")
+        { if (day.weather.currentWeather == "Hot")
             {
                 maxthirst = 10;
             }
-            else if (weather.currentWeather == "Nice")
+            else if (day.weather.currentWeather == "Nice")
             {
                 maxthirst = 25;
             }
-            else if (weather.currentWeather == "Cold")
+            else if (day.weather.currentWeather == "Cold")
             {
                 maxthirst = 50;
             }

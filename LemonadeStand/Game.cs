@@ -10,12 +10,11 @@ namespace LemonadeStand
     {
 
         //member variables (HAS A)
-        bool gameOver;
+        
         public Store store;
         public Player player;
         public UserInterface userInterface;
-        public Day day;
-        public int customerCounter;
+        public Day day;        
         public int amountOfCustomers;
         public static System.Timers.Timer aTimer;
 
@@ -25,9 +24,14 @@ namespace LemonadeStand
         //Constructor (BUILDS OBJECT)
         public Game()
         {
-            gameOver = false;
+            
             amountOfCustomers = 30;
-         
+            store = new Store();
+            player = new Player();
+            userInterface = new UserInterface();
+            day = new Day();
+
+
         }
         
 
@@ -35,7 +39,7 @@ namespace LemonadeStand
         //member methods(CAN DO)
         public void GameCheck()
         {
-            if (player.totalMoney >= player.costOfSupplies)
+            if (player.totalMoney <= player.costOfSupplies)
             {
                 Console.WriteLine("You ran out of money to make a single cup of lemonade! Game Over!");
                 Console.ReadLine();
@@ -60,17 +64,21 @@ namespace LemonadeStand
 
         public void MasterMeth()
         {
-            Console.WriteLine("Youre Total Money is" + player.totalMoney);
+            Console.WriteLine("Youre Total Money is " + player.totalMoney);
             day.weather.WeatherChooserToday();
-            Console.WriteLine("Todays weather will be" + day.weather.currentWeather);
+            Console.WriteLine("Todays weather will be " + day.weather.currentWeather);
             day.weather.WeatherChooserTomorrow();
-            Console.WriteLine("Tommorow's weather MAY be" + day.weather.forecastedWeather);
+            Console.WriteLine("Tommorow's weather MAY be " + day.weather.forecastedWeather);
+            Console.WriteLine("The price of lemons are " + player.CostOfLemon);
             player.CheckLemonOrderingMoney();
             GameCheck();
+            Console.WriteLine("The price of Sugar cubes are " + player.CostOfSugar);
             player.CheckSugarOrderingMoney();
             GameCheck();
+            Console.WriteLine("The price of Ice are " + player.CostOfIce);
             player.CheckIceOrderingMoney();
             GameCheck();
+            Console.WriteLine("The price of Cups are " + player.CostOfCup);
             player.CheckCupOrderingMoney();
             GameCheck();
             player.CanIMakeLemonade();

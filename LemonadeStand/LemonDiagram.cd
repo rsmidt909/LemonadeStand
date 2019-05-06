@@ -3,7 +3,7 @@
   <Class Name="LemonadeStand.Game">
     <Position X="6.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAgABAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAIA=</HashCode>
+      <HashCode>AAAoABAAAAAAEAAAAAAAAAAAAAAABIgBAAAAAAAEAAA=</HashCode>
       <FileName>Game.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -16,12 +16,12 @@
   <Class Name="LemonadeStand.Customer">
     <Position X="0.75" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAAAAAAAAAAAAAAAQAAAhAABAAAIAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AQAgAAAAAAAAAAAAAAQAAAhAABAAAIAAAAAAAAAAAAA=</HashCode>
       <FileName>Customer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LemonadeStand.Day">
-    <Position X="1.75" Y="0.5" Width="1.5" />
+    <Position X="2.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAABAAAABAAAAAAAAAAAABAAgAAAAAAAAgAAAAA=</HashCode>
       <FileName>Day.cs</FileName>
@@ -58,7 +58,7 @@
   <Class Name="LemonadeStand.UserInterface">
     <Position X="2.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAgACAAAAAAAAAA=</HashCode>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
       <FileName>UserInterface.cs</FileName>
     </TypeIdentifier>
   </Class>
