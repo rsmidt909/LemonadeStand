@@ -24,6 +24,7 @@ namespace LemonadeStand
         public Game()
         {
             gameOver = false;
+            
         }
         
 
@@ -39,6 +40,21 @@ namespace LemonadeStand
             {
                 gameOver = false;
             }
+        }
+
+
+        public void MasterMeth()
+        {
+            Console.WriteLine("Youre Total Money is" + player.totalMoney);
+            player.CheckLemonOrderingMoney();
+            GameCheck();
+            player.CheckSugarOrderingMoney();
+            GameCheck();
+            player.CheckIceOrderingMoney();
+            GameCheck();
+            player.CheckCupOrderingMoney();
+            GameCheck();
+
         }
 
     }

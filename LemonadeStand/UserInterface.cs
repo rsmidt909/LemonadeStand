@@ -11,8 +11,8 @@ namespace LemonadeStand
 
 
         //member variables (HAS A)
-        string instructions;
-        string results;
+        public string instructions;
+        
 
 
 
