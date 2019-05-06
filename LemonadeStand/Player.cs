@@ -148,16 +148,17 @@ namespace LemonadeStand
 
         public void LemonadePurchased()
         {
-            if (customer.purchaseLemonade == true)
+            if (customer.purchaseLemonade == true & cupsOfLemonade > 0)
             {
                 cupsOfLemonade--;
                 totalMoney = totalMoney + priceofLemonade;
+                Console.WriteLine("Someone bought a cup of Lemonade!");
             }
         }
 
         public void SetPurchasePrice()
         {
-            Console.WriteLine("What would you like to set the prie of one cup of lemonade?");
+            Console.WriteLine("What would you like to set the price of one cup of lemonade?");
             Console.WriteLine("YOu cannot set the price higher than 2 times the amount that the supplies cost individually.");
             response = Console.ReadLine();
             priceofLemonade = int.Parse(response);

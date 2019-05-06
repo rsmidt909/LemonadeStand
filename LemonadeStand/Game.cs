@@ -46,6 +46,10 @@ namespace LemonadeStand
         public void MasterMeth()
         {
             Console.WriteLine("Youre Total Money is" + player.totalMoney);
+            day.weather.WeatherChooserToday();
+            Console.WriteLine("Todays weather will be" + day.weather.currentWeather);
+            day.weather.WeatherChooserTomorrow();
+            Console.WriteLine("Tommorow's weather MAY be" + day.weather.forecastedWeather);
             player.CheckLemonOrderingMoney();
             GameCheck();
             player.CheckSugarOrderingMoney();
@@ -54,7 +58,17 @@ namespace LemonadeStand
             GameCheck();
             player.CheckCupOrderingMoney();
             GameCheck();
-
+            player.CanIMakeLemonade();
+            player.SetPurchasePrice();
+            Console.Clear();
+            Console.WriteLine("Time to sell some Lemonade!");
+            player.customer.HowMuchThirst();
+            player.customer.BuyLemonade();
+            player.LemonadePurchased();
+            Console.WriteLine("No more customers for the day!");
+            player.ProfitFromLemonadeSold();
+            Console.WriteLine("Youre profit for the day is "+ player.profit);
+            
         }
 
     }

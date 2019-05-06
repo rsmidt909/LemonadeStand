@@ -52,7 +52,7 @@ namespace LemonadeStand
         }
 
         public void BuyLemonade()
-        {
+        { 
             if (weather.RandomNumber(1, maxthirst)>middleThirstLevel )
             {
                 purchaseLemonade = true;
