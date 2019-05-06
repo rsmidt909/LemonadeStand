@@ -15,7 +15,9 @@ namespace LemonadeStand
         public Player player;
         public UserInterface userInterface;
         public Day day;
-
+        public int customerCounter;
+        public int amountOfCustomers;
+        public static System.Timers.Timer aTimer;
 
 
 
@@ -24,7 +26,8 @@ namespace LemonadeStand
         public Game()
         {
             gameOver = false;
-            
+            amountOfCustomers = 30;
+         
         }
         
 
@@ -35,13 +38,25 @@ namespace LemonadeStand
             if (player.totalMoney >= player.costOfSupplies)
             {
                 Console.WriteLine("You ran out of money to make a single cup of lemonade! Game Over!");
-                gameOver = true;
-            } else
-            {
-                gameOver = false;
-            }
+                Console.ReadLine();
+                Environment.Exit(0);
+            } 
         }
 
+        public void Timer()
+        {
+            aTimer = new System.Timers.Timer(1000);
+        }
+        public void FlowOfCustomers()
+        {
+            for(int i = 0; i < amountOfCustomers; i++)
+            {
+                player.customer.HowMuchThirst();
+                player.customer.BuyLemonade();
+                player.LemonadePurchased();
+                Timer();
+            }
+        }
 
         public void MasterMeth()
         {
@@ -62,12 +77,12 @@ namespace LemonadeStand
             player.SetPurchasePrice();
             Console.Clear();
             Console.WriteLine("Time to sell some Lemonade!");
-            player.customer.HowMuchThirst();
-            player.customer.BuyLemonade();
-            player.LemonadePurchased();
+            FlowOfCustomers();
             Console.WriteLine("No more customers for the day!");
             player.ProfitFromLemonadeSold();
             Console.WriteLine("Youre profit for the day is "+ player.profit);
+            GameCheck();
+            MasterMeth();
             
         }
 
