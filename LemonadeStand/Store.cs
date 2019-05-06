@@ -12,9 +12,7 @@ namespace LemonadeStand
 
         //member variables (HAS A)
         bool open;
-        int totalMoney;
-        int profit;
-        int loss;
+        
 
 
 
@@ -24,7 +22,7 @@ namespace LemonadeStand
         //Constructor (BUILDS OBJECT)
         public Store()
         {
-            totalMoney = 100;
+            
         }
 
 

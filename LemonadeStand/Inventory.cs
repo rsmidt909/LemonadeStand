@@ -15,6 +15,7 @@ namespace LemonadeStand
         public int cups;
         public int ice;
         public bool supplies;
+        
 
 
 
@@ -57,10 +58,7 @@ namespace LemonadeStand
             }
         }
 
-        public void OrderSupplies()
-        {
-
-        }
+        
 
 
     }
