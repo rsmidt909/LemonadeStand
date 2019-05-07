@@ -82,6 +82,7 @@ namespace LemonadeStand
 
         public void CanIMakePlayerRecipeLemonade()
         {
+            PlayerRecipe();
             player.inventory.CheckSupplies();
             if (player.inventory.supplies == false)
             {
@@ -89,7 +90,7 @@ namespace LemonadeStand
             }
             else
             {
-                PlayerRecipe();
+                player.inventory.cupsOfLemonade++;
                 CanIMakePlayerRecipeLemonade();
             }
         }
@@ -97,11 +98,11 @@ namespace LemonadeStand
 
         public void PlayerRecipe()
         {
-            player.inventory.lemons=-lemonNumber;
-            player.inventory.sugar=-sugarNumber;
-            player.inventory.ice=-iceNumber;
+            player.inventory.lemons= player.inventory.lemons - lemonNumber;
+            player.inventory.sugar= player.inventory.sugar - sugarNumber;
+            player.inventory.ice= player.inventory.ice - iceNumber;
             player.inventory.cups--;
-            player.inventory.cupsOfLemonade++;
+            
         }
 
         public void PlayerRecipeLemons()
@@ -163,7 +164,7 @@ namespace LemonadeStand
         {            
             Console.Clear();
             Console.WriteLine("Youre Total Money is " + player.totalMoney);
-            Console.WriteLine("Would you like to see just 'Today's weather or the next 'Seven' days?");
+            Console.WriteLine("Would you like to see just 'One' days weather or the next 'Seven' days?");
             player.customer.day.weather.OneDayOrSeven();
             Console.WriteLine("Press enter....");
             Console.ReadLine();

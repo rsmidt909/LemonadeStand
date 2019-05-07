@@ -59,19 +59,20 @@ namespace LemonadeStand
             inventory.sugar =-2;
             inventory.ice =- 2;
             inventory.cups--;
-            inventory.cupsOfLemonade++;          
+                   
            
         }
 
         public void CanIMakeLemonade()
         {
+            MakeLemonade();
             inventory.CheckSupplies();
              if (inventory.supplies == false)
             {
                 Console.WriteLine("You have made " + inventory.cupsOfLemonade + " cups of Lemonade.");
             } else
             {
-                MakeLemonade();
+                inventory.cupsOfLemonade++;
                 CanIMakeLemonade();
             }
         }
