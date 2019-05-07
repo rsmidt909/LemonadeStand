@@ -26,6 +26,7 @@ namespace LemonadeStand
         int priceofLemonade;
         public int cupsOfLemonadeSold;
         public int amountOfCustomers;
+        int numberResponse;
 
 
 
@@ -47,6 +48,7 @@ namespace LemonadeStand
             cupsOfLemonadeSold = 0;
             priceofLemonade = 0;
             amountOfCustomers = 0;
+            numberResponse = 0;
 
         }
 
@@ -90,7 +92,19 @@ namespace LemonadeStand
             
             Console.WriteLine("How many Lemons would you like to purchase?");
             response = Console.ReadLine();
-            inventory.lemons = int.Parse(response);
+            
+            bool parseSuccess = int.TryParse(response, out numberResponse);
+            if (parseSuccess)
+            {
+                inventory.lemons = numberResponse;
+            }
+            else
+            {                
+                Console.WriteLine("That was not a number.");
+                OrderLemons();
+            }
+
+
             totalMoney = totalMoney - (int.Parse(response) * CostOfLemon);
         }
         //--------------lemons---------------------------------------------------------------------
@@ -106,8 +120,17 @@ namespace LemonadeStand
         public void OrderSugar()
         {
             Console.WriteLine("How many cubes of Sugar would you like to purchase?");
-            response = Console.ReadLine();
-            inventory.sugar = int.Parse(response);
+            response = Console.ReadLine();            
+            bool parseSuccess = int.TryParse(response, out numberResponse);
+            if (parseSuccess)
+            {
+                inventory.sugar = numberResponse;
+            }
+            else
+            {
+                Console.WriteLine("That was not a number.");
+                OrderSugar();
+            }
             totalMoney = totalMoney - (int.Parse(response) * CostOfSugar);
         }
         //-------------Sugar-----------------------------------------------------------------------
@@ -124,8 +147,17 @@ namespace LemonadeStand
         public void OrderIce()
         {
             Console.WriteLine("How many cubes of Ice would you like to purchase?");
-            response = Console.ReadLine();
-            inventory.ice = int.Parse(response);
+            response = Console.ReadLine();           
+            bool parseSuccess = int.TryParse(response, out numberResponse);
+            if (parseSuccess)
+            {
+                inventory.ice = numberResponse;
+            }
+            else
+            {
+                Console.WriteLine("That was not a number.");
+                OrderIce();
+            }
             totalMoney = totalMoney - (int.Parse(response) * CostOfIce);
         }
 
@@ -144,7 +176,16 @@ namespace LemonadeStand
         {
             Console.WriteLine("How many Cups would you like to purchase?");
             response = Console.ReadLine();
-            inventory.cups = int.Parse(response);
+            bool parseSuccess = int.TryParse(response, out numberResponse);
+            if (parseSuccess)
+            {
+                inventory.cups = numberResponse;
+            }
+            else
+            {
+                Console.WriteLine("That was not a number.");
+                OrderCup();
+            }
             totalMoney = totalMoney - (int.Parse(response) * CostOfCup);
         }
 
@@ -162,9 +203,18 @@ namespace LemonadeStand
 
         public void SetPurchasePrice()
         {
-            response = Console.ReadLine();
-            priceofLemonade = int.Parse(response);
-            if (priceofLemonade > maxPrice)
+            response = Console.ReadLine();           
+            bool parseSuccess = int.TryParse(response, out numberResponse);
+            if (parseSuccess)
+            {
+                priceofLemonade = numberResponse;
+            }
+            else
+            {
+                Console.WriteLine("That was not a number.");
+                SetPurchasePrice();
+            }
+                if (priceofLemonade > maxPrice)
             {
                 Console.WriteLine("That price is higher than the allowed limit, please try again.");
                 SetPurchasePrice();

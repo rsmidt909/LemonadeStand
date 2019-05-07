@@ -16,7 +16,7 @@ namespace LemonadeStand
         public int lemonNumber;
         public int sugarNumber;
         public int iceNumber;
-        
+        public int numberResponse;
         
 
 
@@ -30,7 +30,7 @@ namespace LemonadeStand
             lemonNumber = 0;
             sugarNumber = 0;
             iceNumber = 0;
-            
+            numberResponse = 0;
         }
 
 
@@ -109,8 +109,23 @@ namespace LemonadeStand
         {
             Console.WriteLine("How many lemons would you like to go into your recipe?");
             response = Console.ReadLine();
-            lemonNumber = int.Parse(response);
+
+            bool parseSuccess = int.TryParse(response, out numberResponse);
+            if (parseSuccess)
+            {
+                lemonNumber = numberResponse;
+            }
+            else {
+                Console.WriteLine("That was not a number.");
+                PlayerRecipeLemons();
+            }          
         }
+
+        
+
+
+
+
         public void LemonCheck()
         {
             if(lemonNumber == 0)
@@ -123,8 +138,19 @@ namespace LemonadeStand
         {
             Console.WriteLine("How many Sugar Cubes would you like to go into your recipe?");
             response = Console.ReadLine();
-            sugarNumber = int.Parse(response);
+
+            bool parseSuccess = int.TryParse(response, out numberResponse);
+            if (parseSuccess)
+            {
+                sugarNumber = numberResponse;
+            }
+            else
+            {
+                Console.WriteLine("That was not a number.");
+                PlayerRecipeSugar();
+            }
         }
+
         public void SugarCheck()
         {
             if (sugarNumber == 0)
@@ -138,6 +164,16 @@ namespace LemonadeStand
             Console.WriteLine("How many Ice cubes would you like to go into your recipe?");
             response = Console.ReadLine();
             iceNumber = int.Parse(response);
+            bool parseSuccess = int.TryParse(response, out numberResponse);
+            if (parseSuccess)
+            {
+                iceNumber = numberResponse;
+            }
+            else
+            {
+                Console.WriteLine("That was not a number.");
+                PlayerRecipeIce();
+            }
         }
         public void IceCheck()
         {
@@ -157,6 +193,9 @@ namespace LemonadeStand
             PlayerRecipeIce();
             IceCheck();
         }
+
+
+        
 
 
 
