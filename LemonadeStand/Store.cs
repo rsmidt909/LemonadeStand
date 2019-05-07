@@ -11,7 +11,6 @@ namespace LemonadeStand
 
 
         //member variables (HAS A)
-        bool open;
         
 
 

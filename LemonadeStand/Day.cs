@@ -10,11 +10,9 @@ namespace LemonadeStand
     {
 
         //member variables (HAS A)
-        int dayCount;
-        bool startDay;
-        bool endDay;
+        
         public Weather weather;
-        public Customer customer;
+        
 
 
 
@@ -24,7 +22,7 @@ namespace LemonadeStand
         public Day()
         {
             weather = new Weather();
-            customer = new Customer();
+            
         }
 
 

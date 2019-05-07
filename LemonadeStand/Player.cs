@@ -11,7 +11,6 @@ namespace LemonadeStand
 
 
         //member variables (HAS A)
-        string recipe;
         public Inventory inventory;
         public int cupsOfLemonade;
         public int CostOfLemon;
@@ -20,11 +19,10 @@ namespace LemonadeStand
         public int CostOfCup;
         public int totalMoney;
         public int profit;
-        public int loss;
         string response;
         public Customer customer;
         public int costOfSupplies;
-        int maxPrice;
+        public int maxPrice;
         int priceofLemonade;
         int cupsOfLemonadeSold;
         
@@ -68,7 +66,7 @@ namespace LemonadeStand
             inventory.CheckSupplies();
              if (inventory.supplies == false)
             {
-                Console.WriteLine("You dont have enough supplies to make anymore lemonade");
+                Console.WriteLine("You have made " + cupsOfLemonade + " cups of Lemonade.");
             } else
             {
                 MakeLemonade();
@@ -161,8 +159,6 @@ namespace LemonadeStand
 
         public void SetPurchasePrice()
         {
-            Console.WriteLine("What would you like to set the price of one cup of lemonade?");
-            Console.WriteLine("You cannot set the price higher than 2 times the amount that the supplies cost individually.");
             response = Console.ReadLine();
             priceofLemonade = int.Parse(response);
             if (priceofLemonade > maxPrice)
@@ -177,7 +173,7 @@ namespace LemonadeStand
             if (customer.purchaseLemonade == true)
             {
                 cupsOfLemonadeSold++;
-                profit = cupsOfLemonadeSold * priceofLemonade;
+                profit = profit + (cupsOfLemonadeSold * priceofLemonade);
                 
             }
         }
