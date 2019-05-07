@@ -37,19 +37,19 @@ namespace LemonadeStand
         //member methods(CAN DO)
         public void CheckSupplies()
         {
-            if (lemons == 0)
+            if (lemons <= 0)
             {
                  supplies = false;
             }
-            else if (sugar == 0)
+            else if (sugar <= 0)
             {
                  supplies = false;
             }
-            else if (cups == 0)
+            else if (cups <= 0)
             {
                  supplies = false;
             }
-            else if (ice == 0)
+            else if (ice <= 0)
             {
                 supplies = false;
             }

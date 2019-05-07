@@ -12,6 +12,10 @@ namespace LemonadeStand
 
         //member variables (HAS A)       
         public Player player;
+        public string response;
+        public int lemonNumber;
+        public int sugarNumber;
+        public int iceNumber;
         
         
 
@@ -22,7 +26,10 @@ namespace LemonadeStand
         {
           
             player = new Player();
-            
+            response = null;
+            lemonNumber = 0;
+            sugarNumber = 0;
+            iceNumber = 0;
             
         }
 
@@ -53,7 +60,106 @@ namespace LemonadeStand
             player.amountOfCustomers = player.customer.day.weather.RandomNumber(0, 100);
         }
 
-        public void MasterMeth()
+        public void WhoMakesRecipe()
+        {
+            Console.WriteLine("Would you like to make the recipe, 'Yes' or 'No'");
+            string recipeDecision = Console.ReadLine();
+            switch (recipeDecision)
+            {
+                case "Yes":
+                    MakePlayerRecipe();
+                    CanIMakePlayerRecipeLemonade();
+                    break;
+                case "No":
+                    player.CanIMakeLemonade();
+                    break;
+                default:
+                    Console.WriteLine("That is not an option, please try again.");
+                    WhoMakesRecipe();
+                    break;
+            }
+        }
+
+        public void CanIMakePlayerRecipeLemonade()
+        {
+            player.inventory.CheckSupplies();
+            if (player.inventory.supplies == false)
+            {
+                Console.WriteLine("You have made " + player.inventory.cupsOfLemonade + " cups of Lemonade.");
+            }
+            else
+            {
+                PlayerRecipe();
+                CanIMakePlayerRecipeLemonade();
+            }
+        }
+
+
+        public void PlayerRecipe()
+        {
+            player.inventory.lemons=-lemonNumber;
+            player.inventory.sugar=-sugarNumber;
+            player.inventory.ice=-iceNumber;
+            player.inventory.cups--;
+            player.inventory.cupsOfLemonade++;
+        }
+
+        public void PlayerRecipeLemons()
+        {
+            Console.WriteLine("How many lemons would you like to go into your recipe?");
+            response = Console.ReadLine();
+            lemonNumber = int.Parse(response);
+        }
+        public void LemonCheck()
+        {
+            if(lemonNumber == 0)
+            {
+                Console.WriteLine("You need atleast 1 in your recipe. Please Try again.");
+                PlayerRecipeLemons();
+            }
+        }
+        public void PlayerRecipeSugar()
+        {
+            Console.WriteLine("How many Sugar Cubes would you like to go into your recipe?");
+            response = Console.ReadLine();
+            sugarNumber = int.Parse(response);
+        }
+        public void SugarCheck()
+        {
+            if (sugarNumber == 0)
+            {
+                Console.WriteLine("You need atleast 1 in your recipe. Please Try again.");
+                PlayerRecipeSugar();
+            }
+        }
+        public void PlayerRecipeIce()
+        {
+            Console.WriteLine("How many Ice cubes would you like to go into your recipe?");
+            response = Console.ReadLine();
+            iceNumber = int.Parse(response);
+        }
+        public void IceCheck()
+        {
+            if (iceNumber == 0)
+            {
+                Console.WriteLine("You need atleast 1 in your recipe. Please Try again.");
+                PlayerRecipeIce();
+            }
+        }
+        
+        public void MakePlayerRecipe()
+        {
+            PlayerRecipeLemons();
+            LemonCheck();
+            PlayerRecipeSugar();
+            SugarCheck();
+            PlayerRecipeIce();
+            IceCheck();
+        }
+
+
+
+        public void MasterMeth() 
         {            
             Console.Clear();
             Console.WriteLine("Youre Total Money is " + player.totalMoney);
@@ -77,7 +183,7 @@ namespace LemonadeStand
             Console.WriteLine("The price of Cups are " + player.CostOfCup + " Dollars");
             player.CheckCupOrderingMoney();
             GameCheck();
-            player.CanIMakeLemonade();
+            WhoMakesRecipe();
             Console.WriteLine("What would you like to set the price of one cup of lemonade?");
             Console.WriteLine("You cannot set the price higher than 2 times the amount that the supplies cost individually.");
             Console.WriteLine("The max set price is " + player.maxPrice + " Dollars.");

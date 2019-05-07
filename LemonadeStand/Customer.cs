@@ -26,8 +26,8 @@ namespace LemonadeStand
         {
             day = new Day();
             
-            maxthirst = 0;
-            middleThirstLevel = (maxthirst / 2);
+            maxthirst = 0;                                    // Probability of the customer choice is completely able to be extended
+            middleThirstLevel = (maxthirst / 2);             // without modifcation.
             purchaseLemonade = false;
         }
 

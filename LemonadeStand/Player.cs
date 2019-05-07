@@ -101,7 +101,7 @@ namespace LemonadeStand
             }
             else { OrderSugar(); }
         }
-
+                                                    
         public void OrderSugar()
         {
             Console.WriteLine("How many cubes of Sugar would you like to purchase?");
@@ -170,7 +170,7 @@ namespace LemonadeStand
             }
         }
 
-        public void ProfitFromLemonadeSold()
+        public void ProfitFromLemonadeSold()                //Methods with single purpose, does one thing and does it well.
         {            
                 profit = profit+(cupsOfLemonadeSold * priceofLemonade);                         
         }

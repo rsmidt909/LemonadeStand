@@ -30,8 +30,8 @@ namespace LemonadeStand
 
 
         //member methods(CAN DO)
-        public void WeatherChooserToday()
-        {
+        public void WeatherChooserToday()                   // The weather is able to be extended to content without
+        {                                                  // without modifcation
             int weatherDecision = RandomNumber(1, 4);
             switch (weatherDecision)
             {
