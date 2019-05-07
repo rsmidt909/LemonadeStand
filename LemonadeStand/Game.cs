@@ -13,7 +13,8 @@ namespace LemonadeStand
         //member variables (HAS A)
         
         
-        public Player player;             
+        
+        public UserInterface userInterface;
         
         
 
@@ -23,9 +24,9 @@ namespace LemonadeStand
         //Constructor (BUILDS OBJECT)
         public Game()
         {
-            
-                        
-            player = new Player();
+
+
+            userInterface = new UserInterface();
 
             
             
@@ -38,7 +39,7 @@ namespace LemonadeStand
         //member methods(CAN DO)
         public void GameCheck()
         {
-            if (player.totalMoney <= player.costOfSupplies)
+            if (userInterface.player.totalMoney <= userInterface.player.costOfSupplies)
             {
                 Console.WriteLine("You ran out of money to make a single cup of lemonade! Game Over!");
                 Console.ReadLine();
@@ -48,8 +49,8 @@ namespace LemonadeStand
 
         public void StatReset()
         {
-            player.cupsOfLemonadeSold = 0;
-            player.profit = 0;
+            userInterface.player.cupsOfLemonadeSold = 0;
+            userInterface.player.profit = 0;
         }
 
 
