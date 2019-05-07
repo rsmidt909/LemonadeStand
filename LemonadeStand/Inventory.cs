@@ -15,7 +15,8 @@ namespace LemonadeStand
         public int cups;
         public int ice;
         public bool supplies;
-        
+        public int cupsOfLemonade = 0;
+
 
 
 
@@ -58,7 +59,16 @@ namespace LemonadeStand
             }
         }
 
-        
+        public void Perishable()
+        {
+            cups = 0;
+            ice = 0;
+            sugar = 0;
+            lemons = 0;
+            cupsOfLemonade = 0;
+        }
+
+
 
 
     }

@@ -10,7 +10,7 @@ namespace LemonadeStand
     {
         static void Main(string[] args)
         {
-            Game game = new Game();
+            UserInterface game = new UserInterface();
             
             game.MasterMeth();
         }

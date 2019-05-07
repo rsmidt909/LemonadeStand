@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace LemonadeStand
 {
@@ -12,7 +13,6 @@ namespace LemonadeStand
 
         //member variables (HAS A)
         public Inventory inventory;
-        public int cupsOfLemonade;
         public int CostOfLemon;
         public int CostOfSugar;
         public int CostOfIce;
@@ -24,8 +24,9 @@ namespace LemonadeStand
         public int costOfSupplies;
         public int maxPrice;
         int priceofLemonade;
-        int cupsOfLemonadeSold;
-        
+        public int cupsOfLemonadeSold;
+        public int amountOfCustomers;
+
 
 
 
@@ -34,8 +35,7 @@ namespace LemonadeStand
         public Player()
         {
             inventory = new Inventory();
-            customer = new Customer();
-            cupsOfLemonade = 0;
+            customer = new Customer();           
             CostOfCup = 1;
             CostOfIce = 1;
             CostOfSugar = 2;
@@ -46,6 +46,8 @@ namespace LemonadeStand
             profit = 0;
             cupsOfLemonadeSold = 0;
             priceofLemonade = 0;
+            amountOfCustomers = 30;
+
         }
 
 
@@ -57,7 +59,7 @@ namespace LemonadeStand
             inventory.sugar =-2;
             inventory.ice =- 2;
             inventory.cups--;
-            cupsOfLemonade++;          
+            inventory.cupsOfLemonade++;          
            
         }
 
@@ -66,7 +68,7 @@ namespace LemonadeStand
             inventory.CheckSupplies();
              if (inventory.supplies == false)
             {
-                Console.WriteLine("You have made " + cupsOfLemonade + " cups of Lemonade.");
+                Console.WriteLine("You have made " + inventory.cupsOfLemonade + " cups of Lemonade.");
             } else
             {
                 MakeLemonade();
@@ -149,9 +151,9 @@ namespace LemonadeStand
 
         public void LemonadePurchased()
         {
-            if (customer.purchaseLemonade == true & cupsOfLemonade > 0)
+            if (customer.purchaseLemonade == true & inventory.cupsOfLemonade > 0)
             {
-                cupsOfLemonade--;
+                inventory.cupsOfLemonade--;
                 totalMoney = totalMoney + priceofLemonade;
                 Console.WriteLine("Someone bought a cup of Lemonade!");
             }
@@ -169,19 +171,31 @@ namespace LemonadeStand
         }
 
         public void ProfitFromLemonadeSold()
+        {            
+                profit = profit+(cupsOfLemonadeSold * priceofLemonade);                         
+        }
+
+        public void FlowOfCustomers()
         {
-            if (customer.purchaseLemonade == true)
+            for (int i = 0; i < amountOfCustomers; i++)
             {
-                cupsOfLemonadeSold++;
-                profit = profit + (cupsOfLemonadeSold * priceofLemonade);
-                
+                customer.HowMuchThirst();
+                customer.BuyLemonade();
+                LemonadePurchased();
+                CupsOfLemonadeSold();
+                Thread.Sleep(1000);
             }
         }
 
+        public void CupsOfLemonadeSold()
+        {
+            if (customer.purchaseLemonade == true)
+            {
+                cupsOfLemonadeSold++;               
+            }
+        }
 
-
-
-
+        
 
 
 
