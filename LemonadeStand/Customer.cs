@@ -11,8 +11,8 @@ namespace LemonadeStand
 
 
         //member variables (HAS A)
-        int maxthirst;
-        int middleThirstLevel;
+        public int maxthirst;
+        public int middleThirstLevel;
         
         public bool purchaseLemonade;
         public Day day;
@@ -27,7 +27,7 @@ namespace LemonadeStand
             day = new Day();
             
             maxthirst = 0;
-            middleThirstLevel = maxthirst / 2;
+            middleThirstLevel = (maxthirst / 2);
             purchaseLemonade = false;
         }
 
@@ -57,7 +57,7 @@ namespace LemonadeStand
 
         public void BuyLemonade()
         { 
-            if (day.weather.RandomNumber(1, maxthirst)>middleThirstLevel )
+            if (day.weather.RandomNumber(1, maxthirst)>(maxthirst/2) )
             {
                 purchaseLemonade = true;
             }

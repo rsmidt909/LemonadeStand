@@ -38,15 +38,15 @@ namespace LemonadeStand
             customer = new Customer();           
             CostOfCup = 1;
             CostOfIce = 1;
-            CostOfSugar = 2;
-            CostOfLemon = 5;
-            totalMoney = 100;
+            CostOfSugar = 1;
+            CostOfLemon = 1;
+            totalMoney = 75;
             costOfSupplies = CostOfCup + CostOfIce + CostOfSugar + CostOfLemon;
             maxPrice = costOfSupplies * 2;
             profit = 0;
             cupsOfLemonadeSold = 0;
             priceofLemonade = 0;
-            amountOfCustomers = customer.day.weather.RandomNumber(0, 100);
+            amountOfCustomers = 0;
 
         }
 
@@ -177,7 +177,7 @@ namespace LemonadeStand
 
         public void FlowOfCustomers()
         {
-            for (int i = 0; i < inventory.cupsOfLemonade; i++)
+            for (int i = 0; i < inventory.cupsOfLemonade & i < amountOfCustomers;)
             {
                 customer.HowMuchThirst();
                 customer.BuyLemonade();
@@ -195,7 +195,13 @@ namespace LemonadeStand
             }
         }
 
-        
+        public void PriceTooHigh()
+        {
+            if (maxPrice > 5)
+            {
+                customer.maxthirst = +100;
+            }
+        }
 
 
 

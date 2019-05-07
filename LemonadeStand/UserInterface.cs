@@ -10,8 +10,7 @@ namespace LemonadeStand
     {
 
 
-        //member variables (HAS A)
-        public string instructions;
+        //member variables (HAS A)       
         public Player player;
         
         
@@ -49,7 +48,10 @@ namespace LemonadeStand
             player.profit = 0;
         }
 
-
+        public void AmountOfCustomersForDay()
+        {
+            player.amountOfCustomers = player.customer.day.weather.RandomNumber(0, 100);
+        }
 
         public void MasterMeth()
         {            
@@ -79,9 +81,12 @@ namespace LemonadeStand
             Console.WriteLine("What would you like to set the price of one cup of lemonade?");
             Console.WriteLine("You cannot set the price higher than 2 times the amount that the supplies cost individually.");
             Console.WriteLine("The max set price is " + player.maxPrice + " Dollars.");
+            Console.WriteLine("*Tip* If you set the price too high, you will have a lower cance of lemonade being purchased! *Tip*");
             player.SetPurchasePrice();
+            player.PriceTooHigh();
             Console.Clear();
             Console.WriteLine("Time to sell some Lemonade!");
+            AmountOfCustomersForDay();
             player.FlowOfCustomers();
             Console.WriteLine("No more customers for the day!");
             Console.ReadLine();
