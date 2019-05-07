@@ -52,20 +52,14 @@ namespace LemonadeStand
 
 
         public void MasterMeth()
-        {
-            Console.WriteLine("How to play! You'll recieve starting funds, with those funds you must decide how much of Ice, Cups, Lemons, and Sugar you think you will need.");
-            Console.WriteLine("Before the start of each day, you will be prompted with the current weather and the next days forcasted waeather.");
-            Console.WriteLine("Once the day starts, customers will purchase your lemonade based off of the weather. When the day has ended, you will be shown how much you earned in lemonade sales.");
-            Console.WriteLine("Any materials spent on making lemonade but not sold is lost. And if your balance ever reaches zero, then you've gone out of business and lost!");
-            Console.WriteLine("How long can you last?");
-            Console.WriteLine("Press enter.....");
-            Console.ReadLine();
+        {            
             Console.Clear();
             Console.WriteLine("Youre Total Money is " + player.totalMoney);
-            player.customer.day.weather.WeatherChooserToday();
-            Console.WriteLine("Todays weather will be " + player.customer.day.weather.currentWeather);
-            player.customer.day.weather.WeatherChooserTomorrow();
-            Console.WriteLine("Tommorow's weather MAY be " + player.customer.day.weather.forecastedWeather);
+            Console.WriteLine("Would you like to see just 'Today's weather or the next 'Seven' days?");
+            player.customer.day.weather.OneDayOrSeven();
+            Console.WriteLine("Press enter....");
+            Console.ReadLine();
+            Console.Clear();
             Console.WriteLine("The price of lemons are " + player.CostOfLemon + " Dollars");
             player.CheckLemonOrderingMoney();
             GameCheck();

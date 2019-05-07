@@ -84,9 +84,42 @@ namespace LemonadeStand
             return rando.Next(min, max);
         }
 
+        public void WeekOfWeather()
+        {
+            WeatherChooserToday();
+            Console.WriteLine("Today will be " +currentWeather);
+            WeatherChooserTomorrow();
+            Console.WriteLine("The next day MAY be " + forecastedWeather);
+            WeatherChooserTomorrow();
+            Console.WriteLine("The next day MAY be " + forecastedWeather);
+            WeatherChooserTomorrow();
+            Console.WriteLine("The next day MAY be " + forecastedWeather);
+            WeatherChooserTomorrow();
+            Console.WriteLine("The next day MAY be " + forecastedWeather);
+            WeatherChooserTomorrow();
+            Console.WriteLine("The next day MAY be " + forecastedWeather);
+            WeatherChooserTomorrow();
+            Console.WriteLine("The next day MAY be " + forecastedWeather);
+        }
 
-
-
+        public void OneDayOrSeven()
+        {
+            string weatherDecision = Console.ReadLine();
+            switch (weatherDecision)
+            {
+                case "One":
+                    WeatherChooserToday();
+                    Console.WriteLine("Todays weather will be " + currentWeather);
+                    break;
+                case "Seven":
+                    WeekOfWeather();
+                    break;               
+                default:
+                    Console.WriteLine("That is not an option, please try again.");
+                    OneDayOrSeven();
+                    break;
+            }
+        }
 
 
 
