@@ -46,7 +46,7 @@ namespace LemonadeStand
             profit = 0;
             cupsOfLemonadeSold = 0;
             priceofLemonade = 0;
-            amountOfCustomers = 30;
+            amountOfCustomers = customer.day.weather.RandomNumber(0, 100);
 
         }
 
@@ -177,7 +177,7 @@ namespace LemonadeStand
 
         public void FlowOfCustomers()
         {
-            for (int i = 0; i < amountOfCustomers; i++)
+            for (int i = 0; i < inventory.cupsOfLemonade; i++)
             {
                 customer.HowMuchThirst();
                 customer.BuyLemonade();
